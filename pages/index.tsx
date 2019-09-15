@@ -1,15 +1,15 @@
-import Header from '../components/header';
+import Header from '../app/components/header';
 import withMaterialUI from './shared/mui/with-mui';
 
 import '../styles/style.scss';
 import {Component} from 'react';
-
-const axios = require('axios').default;
+import {HttpClient} from '../app/services/httpClient';
 
 class Home extends Component {
   static async getInitialProps(): Promise<any> {
-    const response = await axios.get(process.env.BLOGGER_URL + 'posts')
-      .then(res => res)
+    const http = HttpClient.getInstance();
+    const response = await http.get('posts')
+      .toPromise()
       .catch();
     return {posts: response.data}
   }
