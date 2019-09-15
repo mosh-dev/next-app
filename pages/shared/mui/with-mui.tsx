@@ -9,7 +9,6 @@ const withMaterialUI = ComposedComponent => {
     static async getInitialProps(ctx) {
       const {req} = ctx;
       const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-
       if (ComposedComponent.getInitialProps) {
         const subProps = await ComposedComponent.getInitialProps(ctx);
         return {
@@ -21,7 +20,6 @@ const withMaterialUI = ComposedComponent => {
     }
 
     render() {
-      const {userAgent} = this.props as any;
       const LATO_FONT = 'lato, sans-serif';
       const muiTheme = createMuiTheme(
         {
@@ -44,7 +42,7 @@ const withMaterialUI = ComposedComponent => {
             <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
             <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
           </Head>
           <MuiThemeProvider theme={muiTheme}>
             <ComposedComponent {...this.props}/>
