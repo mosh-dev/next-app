@@ -4,16 +4,20 @@ import {fromPromise} from 'rxjs/internal-compatibility';
 
 export class HttpClient {
   private static instance: HttpClient;
-  private axios = require('axios').default.create();
+  private axios = require('axios')
+    .default
+    .create({
+      baseURL: process.env.BLOGGER_URL
+    });
 
   private constructor() {
     /**
      * Configure Interceptor
      */
     this.axios.interceptors.request.use(config => {
-      if (!config.url.includes(process.env.BLOGGER_URL)) {
-        config.url = process.env.BLOGGER_URL + config.url;
-      }
+      // if (!config.url.includes(process.env.BLOGGER_URL)) {
+      //   config.url = process.env.BLOGGER_URL + config.url;
+      // }
       return config;
     });
   }
