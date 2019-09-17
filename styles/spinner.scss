@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.pre-loader-index {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.loader-index, .loader-index:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+
+.loader-index {
+  font-size: 10px;
+  text-indent: -9999em;
+  border: 1.1em solid rgba(185, 184, 188, 0.2);
+  border-left-color: rgba(48, 50, 56, 0.2);
+  animation: load-index 800ms infinite linear;
+  top: 40%;
+  margin: 0 auto;
+  transform: translate(-50%, -50%);
+  position: relative;
+}
+
+@-webkit-keyframes load-index {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

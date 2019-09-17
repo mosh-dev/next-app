@@ -3,6 +3,10 @@ import {createMuiTheme, MuiThemeProvider} from '@material-ui/core';
 import {indigo, pink, red} from '@material-ui/core/colors';
 import Head from 'next-server/head';
 
+import '../../../styles/spinner.scss';
+import {BROWSER_PLATFORM} from '../../../utilities/platform';
+import Header from '../../../app/components/header';
+
 
 const withMaterialUI = ComposedComponent => {
   class HOC extends Component {
@@ -35,6 +39,11 @@ const withMaterialUI = ComposedComponent => {
           }
         }
       );
+
+      if (BROWSER_PLATFORM) {
+        setTimeout(() => document.querySelector('.pre-loader-index').classList.add('hidden'), 200);
+      }
+
       return (
         <>
           <Head>
@@ -45,8 +54,12 @@ const withMaterialUI = ComposedComponent => {
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
           </Head>
           <MuiThemeProvider theme={muiTheme}>
+            <Header/>
             <ComposedComponent {...this.props}/>
           </MuiThemeProvider>
+          <div className='pre-loader-index'>
+            <div className="loader-index"/>
+          </div>
         </>
       );
     }
