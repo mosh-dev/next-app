@@ -49,6 +49,8 @@ const withMaterialUI = ComposedComponent => {
           <Head>
             <title>NextJs App</title>
             <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
+            <link rel="shortcut icon" href="../../../static/favicon.ico"/>
+
             <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
