@@ -4,7 +4,6 @@ import '../styles/style.scss';
 import {Component} from 'react';
 import {HttpClient} from '../app/services/httpClient';
 import Link from 'next/link';
-import Header from '../app/components/header';
 
 class Home extends Component {
   static async getInitialProps(): Promise<any> {
@@ -19,7 +18,6 @@ class Home extends Component {
     const {posts} = this.props as any;
     return (
       <div className="root">
-        <Header/>
         <ul>
           {(posts || []).map(post => <li key={post.id}>
             <Link href='/about'>
