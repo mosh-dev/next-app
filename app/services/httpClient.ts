@@ -11,6 +11,7 @@ export class HttpClient {
     });
 
   private constructor() {
+    console.log('Initialized');
     /**
      * Configure Interceptor
      */
