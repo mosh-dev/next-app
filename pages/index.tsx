@@ -1,10 +1,12 @@
 import withMaterialUI from './shared/mui/with-mui';
 
 import '../styles/style.scss';
-import {Component} from 'react';
+import React, {Component} from 'react';
 import {HttpClient} from '../app/services/httpClient';
 import Link from 'next/link';
 import {Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography} from '@material-ui/core';
+import Header from '../app/components/header';
+
 
 class Home extends Component {
   static async getInitialProps(): Promise<any> {
@@ -16,12 +18,13 @@ class Home extends Component {
   }
 
   render() {
+    const {posts} = this.props as any;
     const cardStyle = {
       margin: '18px 8px'
     };
-    const {posts} = this.props as any;
     return (
       <div className="root">
+        <Header/>
         {(posts || []).map(post => <Card key={post.id} style={cardStyle}>
           <CardActionArea>
             <CardMedia

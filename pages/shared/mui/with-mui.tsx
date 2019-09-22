@@ -1,8 +1,9 @@
-import {Component} from 'react';
+import React, {Component} from 'react';
 import {MuiThemeProvider} from '@material-ui/core';
 
 import '../../../styles/spinner.scss';
 import {muiTheme} from './theme';
+import Head from 'next-server/head';
 
 
 const withMaterialUI = ComposedComponent => {
@@ -23,6 +24,9 @@ const withMaterialUI = ComposedComponent => {
     render() {
       return (
         <>
+          <Head>
+            <title>NextJs App</title>
+          </Head>
           <MuiThemeProvider theme={muiTheme}>
             <ComposedComponent {...this.props}/>
           </MuiThemeProvider>

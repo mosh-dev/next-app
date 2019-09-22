@@ -8,20 +8,20 @@ class MyDocument extends Document {
     return (
       <html lang="en">
       <Head>
-        <title>NextJs App</title>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
         <meta charSet="utf-8"/>
-        <link rel="shortcut icon" href="../static/favicon.ico"/>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
         />
         {/* PWA primary color */}
         <meta name="theme-color" content={muiTheme.palette.primary.main}/>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width'/>
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
+        <link rel="shortcut icon" href="../static/favicon.ico"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
       </Head>
       <body>
       <Main/>
