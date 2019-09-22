@@ -9,8 +9,8 @@ export const muiTheme = createMuiTheme(
       fontFamily: LATO_FONT
     },
     palette: {
-      primary: indigo,
-      secondary: pink,
+      primary: pink,
+      secondary: indigo,
       error: red,
       contrastThreshold: 3,
       tonalOffset: 0.2,
