@@ -14,6 +14,7 @@ export const muiTheme = createMuiTheme(
       error: red,
       contrastThreshold: 3,
       tonalOffset: 0.2,
-    }
+    },
+    direction: 'ltr'
   }
 );
