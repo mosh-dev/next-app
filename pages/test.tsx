@@ -6,11 +6,12 @@ import {CountersContainer} from '../app/components/countersContainer';
 class Test extends Component {
 
   state = {
-    imageURL: 'https://picsum.photos/800/100',
+    imageURL: 'https://i0.wp.com/acceleratedevolutionacademy.com/wp-content/uploads/2016/12/gradient-bg-color.jpg?fit=2048%2C786&ssl=1',
     counters: [
       {id: 1, value: 0},
       {id: 2, value: 0},
-      {id: 3, value: 6}
+      {id: 3, value: 6},
+      {id: 4, value: 0},
     ]
   };
 
@@ -46,7 +47,7 @@ class Test extends Component {
   render(): ReactNode {
     return (
       <>
-        <div style={{marginBottom: 20, minHeight: 100}}>
+        <div style={{marginBottom: 20, height: 100, overflow: 'hidden', objectFit: 'cover'}}>
           <img width={'100%'} src={this.state.imageURL} alt=''/>
         </div>
         <h1 style={{margin: '32px 0px'}}>Total active Counter {this.state.counters.filter(c => c.value).length}</h1>

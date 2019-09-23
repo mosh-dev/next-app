@@ -6,7 +6,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
@@ -94,6 +93,7 @@ const withDrawer = ComposedComponent => {
           <ToolbarComponent/>
         </AppBar>
         <Drawer
+          open={open}
           variant="permanent"
           className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
@@ -104,9 +104,7 @@ const withDrawer = ComposedComponent => {
               [classes.drawerOpen]: open,
               [classes.drawerClose]: !open,
             }),
-          }}
-          open={open}
-        >
+          }}>
           <div className={classes.toolbar}/>
           <Divider/>
           <List>
@@ -115,7 +113,7 @@ const withDrawer = ComposedComponent => {
                 <ListItemIcon>
                   <Icon>home</Icon>
                 </ListItemIcon>
-                <ListItemText primary={'home'}/>
+                <ListItemText primary={'Home'}/>
               </ListItem>
             </Link>
             <Link href='/test'>
