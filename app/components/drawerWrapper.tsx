@@ -8,10 +8,6 @@ import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -36,12 +32,12 @@ const withDrawer = ComposedComponent => {
           }),
         },
         appBarShift: {
-          marginLeft: drawerWidth,
-          width: `calc(100% - ${drawerWidth}px)`,
-          transition: theme.transitions.create(['width', 'margin'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-          }),
+          // marginLeft: drawerWidth,
+          // width: `calc(100% - ${drawerWidth}px)`,
+          // transition: theme.transitions.create(['width', 'margin'], {
+          //   easing: theme.transitions.easing.sharp,
+          //   duration: theme.transitions.duration.enteringScreen,
+          // }),
         },
         menuButton: {
           marginRight: 36,
@@ -88,7 +84,7 @@ const withDrawer = ComposedComponent => {
 
     const classes = useStyles(muiTheme);
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
 
     function handleDrawerOpen() {
       setOpen(true);
@@ -108,17 +104,17 @@ const withDrawer = ComposedComponent => {
           })}
         >
           <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open,
-              })}
-            >
-              <MenuIcon/>
-            </IconButton>
+            {/*<IconButton*/}
+            {/*  color="inherit"*/}
+            {/*  aria-label="open drawer"*/}
+            {/*  onClick={handleDrawerOpen}*/}
+            {/*  edge="start"*/}
+            {/*  className={clsx(classes.menuButton, {*/}
+            {/*    [classes.hide]: open,*/}
+            {/*  })}*/}
+            {/*>*/}
+            {/*  <MenuIcon/>*/}
+            {/*</IconButton>*/}
             <Typography variant="h6" noWrap>
               Mini variant drawer
             </Typography>
@@ -139,9 +135,9 @@ const withDrawer = ComposedComponent => {
           open={open}
         >
           <div className={classes.toolbar}>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
-            </IconButton>
+            {/*<IconButton onClick={handleDrawerClose}>*/}
+            {/*  {theme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}*/}
+            {/*</IconButton>*/}
           </div>
           <Divider/>
           <List>
@@ -163,6 +159,7 @@ const withDrawer = ComposedComponent => {
           </List>
         </Drawer>
         <main className={classes.content}>
+          <Toolbar/>
           <ComposedComponent {...props}/>
         </main>
       </div>

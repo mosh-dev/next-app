@@ -1,5 +1,6 @@
 import React from 'react';
 import withMaterialUI from './shared/mui/with-mui';
+import withDrawer from '../app/components/drawerWrapper';
 
 const About = ({title = 'About Page'}) => {
   return (
@@ -9,4 +10,4 @@ const About = ({title = 'About Page'}) => {
   );
 };
 
-export default withMaterialUI(About);
+export default withMaterialUI(withDrawer(About));
