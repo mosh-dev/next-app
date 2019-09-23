@@ -9,6 +9,7 @@ class Home extends Component {
   static async getInitialProps(): Promise<any> {
     const cds = CommonDataService.getInstance();
     const posts = await cds.getPosts();
+    posts.forEach(post => post.thumb = 'https://picsum.photos/280/160/');
     return {posts}
   }
 

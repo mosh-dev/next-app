@@ -4,7 +4,8 @@ import Link from 'next/link';
 
 export class PostsComponent extends Component {
   render() {
-    const {posts} = this.props as any;
+    let {posts} = this.props as any;
+    console.log(posts);
     return (
       <Grid container>
         {(posts || []).map(post => (
@@ -15,7 +16,7 @@ export class PostsComponent extends Component {
                   style={{
                     height: 160,
                   }}
-                  image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+                  image={post.thumb}
                   title="Contemplative Reptile"
                 />
                 <CardContent>
