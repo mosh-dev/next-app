@@ -14,6 +14,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import {muiTheme} from '../theme';
 import Link from 'next/link';
 import {Icon} from '@material-ui/core';
+import {NextPageContext} from 'next';
 
 const drawerWidth = 240;
 
@@ -140,14 +141,11 @@ const withDrawer = ComposedComponent => {
     );
   };
 
-  HOC.getInitialProps = async ctx => {
-    const {req} = ctx;
-    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+  HOC.getInitialProps = async (ctx: NextPageContext) => {
     if (ComposedComponent.getInitialProps) {
-      const subProps = await ComposedComponent.getInitialProps(ctx);
-      return {...subProps, userAgent}
+      return await ComposedComponent.getInitialProps(ctx);
     }
-    return {userAgent};
+    return {};
   };
 
   return HOC;
