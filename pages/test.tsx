@@ -49,6 +49,7 @@ class Test extends Component {
         <div style={{marginBottom: 20, minHeight: 100}}>
           <img width={'100%'} src={this.state.imageURL} alt=''/>
         </div>
+        <h1 style={{margin: '32px 0px'}}>Total active Counter {this.state.counters.filter(c => c.value).length}</h1>
         <CountersContainer
           counters={this.state.counters}
           onReset={this.handleCounterReset}
