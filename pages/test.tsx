@@ -1,6 +1,7 @@
 import React, {Component, ReactNode} from 'react';
 import withDrawer from '../app/components/drawerWrapper';
 import Counter from '../app/components/counter';
+import {Button} from '@material-ui/core';
 
 class Test extends Component {
   state = {
@@ -12,32 +13,60 @@ class Test extends Component {
     ]
   };
 
-  handleCounterDelete = (counterId) => {
-    const counters = this.state.counters.filter(c => c.id !== counterId);
+  handleCounterReset = () => {
+    const counters = this.state.counters.map(c => {
+      c.value = 0;
+      return c;
+    });
     this.setState({counters});
   };
 
-  getCounterProps(counter) {
-    return {
-      ...counter,
-      onDelete: this.handleCounterDelete
-    }
-  }
+  handleCounterDelete = (counter) => {
+    const counters = this.state.counters.filter(c => c.id !== counter.id);
+    this.setState({counters});
+  };
 
+  handleIncrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    console.log(index, counter);
+    counters[index] = {...counter};
+    counters[index].value++;
+    this.setState({counters});
+  };
+
+  handleDecrement = (counter) => {
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = {...counter};
+    counters[index].value--;
+    this.setState({counters});
+  };
 
   render(): ReactNode {
     return (
       <>
         <div style={{marginBottom: 20, minHeight: 100}}>
-          <img width={'100%'} src={this.state.imageURL}/>
+          <img width={'100%'} src={this.state.imageURL} alt=''/>
         </div>
 
         <div style={{marginBottom: 20}}>
           {this.state.counters.map(counter => (
-            <Counter key={counter.id} {...this.getCounterProps(counter)}>
+            <Counter
+              key={counter.id}
+              counter={counter}
+              onDelete={this.handleCounterDelete}
+              onIncrement={this.handleIncrement}
+              onDecrement={this.handleDecrement}
+            >
               <h5>Counter {counter.id}</h5>
             </Counter>
           ))}
+        </div>
+        <div>
+          <Button variant="outlined" onClick={this.handleCounterReset}>
+            Reset
+          </Button>
         </div>
       </>
     );
