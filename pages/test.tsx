@@ -13,6 +13,17 @@ class Test extends Component {
     ]
   };
 
+  handleCounterDelete = (counterId) => {
+    console.log('Handle Delete', counterId);
+  };
+
+  getCounterProps(counter) {
+    return {
+      ...counter,
+      onDelete: this.handleCounterDelete
+    }
+  }
+
 
   render(): ReactNode {
     return (
@@ -22,7 +33,13 @@ class Test extends Component {
         </div>
 
         <div style={{marginBottom: 20}}>
-          {this.state.counters.map(counter => <Counter {...counter} key={counter.id}/>)}
+          {this.state.counters.map(counter => (
+            <Counter
+              {...this.getCounterProps(counter)}
+              key={counter.id}>
+              <h5>Counter {counter.id}</h5>
+            </Counter>
+          ))}
         </div>
 
         <div>
