@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider} from '@material-ui/core';
-
-import '../../../styles/style.scss';
-import '../../../styles/spinner.scss';
 import {muiTheme} from '../../../app/theme';
 import Head from 'next-server/head';
 
