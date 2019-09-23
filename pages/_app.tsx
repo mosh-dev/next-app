@@ -2,6 +2,7 @@ import React from 'react';
 import App from 'next/app';
 import '../styles/style.scss';
 import '../styles/spinner.scss';
+import Head from 'next-server/head';
 
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for
@@ -17,7 +18,14 @@ class MyApp extends App {
   // }
   render() {
     const {Component, pageProps} = this.props;
-    return <Component {...pageProps} />
+    return (
+      <>
+        <Head>
+          <title>NextJs App</title>
+        </Head>
+        <Component {...pageProps} />
+      </>
+    )
   }
 }
 

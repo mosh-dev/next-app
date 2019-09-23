@@ -1,4 +1,4 @@
-import withMaterialUI from './shared/mui/with-mui';
+import withMaterialUI from '../app/components/shared/mui/with-mui';
 import React, {Component} from 'react';
 import {PostsComponent} from '../app/components/postsComponent';
 import withDrawer from '../app/components/drawerWrapper';

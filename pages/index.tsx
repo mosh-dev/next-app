@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import withDrawer from '../app/components/drawerWrapper';
-import withMaterialUI from './shared/mui/with-mui';
+import withMaterialUI from '../app/components/shared/mui/with-mui';
 import {PostsComponent} from '../app/components/postsComponent';
 import {CommonDataService} from '../app/services/commonData.service';
 

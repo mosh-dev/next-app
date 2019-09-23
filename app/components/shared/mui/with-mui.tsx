@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {MuiThemeProvider} from '@material-ui/core';
-import {muiTheme} from '../../../app/theme';
-import Head from 'next-server/head';
+import {muiTheme} from '../../../theme';
 
 
 const withMaterialUI = ComposedComponent => {
@@ -21,14 +20,9 @@ const withMaterialUI = ComposedComponent => {
 
     render() {
       return (
-        <>
-          <Head>
-            <title>NextJs App</title>
-          </Head>
-          <MuiThemeProvider theme={muiTheme}>
-            <ComposedComponent {...this.props}/>
-          </MuiThemeProvider>
-        </>
+        <MuiThemeProvider theme={muiTheme}>
+          <ComposedComponent {...this.props}/>
+        </MuiThemeProvider>
       );
     }
   }
