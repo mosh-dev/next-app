@@ -11,16 +11,10 @@ export class HttpClient {
     });
 
   private constructor() {
-    console.log('Initialized');
     /**
      * Configure Interceptor
      */
-    this.axios.interceptors.request.use(config => {
-      // if (!config.url.includes(process.env.BLOGGER_URL)) {
-      //   config.url = process.env.BLOGGER_URL + config.url;
-      // }
-      return config;
-    });
+    this.axios.interceptors.request.use(config => config);
   }
 
   public static getInstance(): HttpClient {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Typography from '@material-ui/core/Typography';
 import {Toolbar} from '@material-ui/core';
-import {withDrawer} from '../app/components/drawerWrapper';
+import withDrawer from '../app/components/drawerWrapper';
 import withMaterialUI from './shared/mui/with-mui';
 
 

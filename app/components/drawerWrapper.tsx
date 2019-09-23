@@ -21,7 +21,7 @@ import {muiTheme} from '../theme';
 
 const drawerWidth = 240;
 
-export const withDrawer = ComposedComponent => {
+const withDrawer = ComposedComponent => {
   const HOC = props => {
     const useStyles = makeStyles((theme: Theme) =>
       createStyles({
@@ -184,3 +184,5 @@ export const withDrawer = ComposedComponent => {
 
   return HOC;
 };
+
+export default withDrawer;
