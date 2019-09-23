@@ -1,62 +1,28 @@
 import React, {Component, ReactNode} from 'react';
 import withDrawer from '../app/components/drawerWrapper';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import RemoveIcon from '@material-ui/icons/Remove';
+import Counter from '../app/components/counter';
 
 class Test extends Component {
   state = {
-    count: 0,
     imageURL: 'https://picsum.photos/800/200',
-    tags: ['tag1', 'tag2', 'tag3', 'tag4dd']
+    tags: ['tag1', 'tag2', 'tag3', 'tag4dd'],
+    counters: [
+      {id: 1, value: 0},
+      {id: 2, value: 4},
+      {id: 3, value: 6}
+    ]
   };
 
-  fabStyle = {margin: 10};
-
-  formatCount() {
-    const {count} = this.state;
-    return count === 0 ? <span>Zero</span> : count;
-  }
-
-  handleIncrement = () => {
-    this.setState({count: this.state.count + 1});
-  };
-
-  handleDecrement = () => {
-    this.setState({count: this.state.count - 1});
-  };
-
-  private get badgeClasses() {
-    let classes = 'badge badge-';
-    classes += this.state.count === 0 ? 'warning' : 'primary';
-    return classes;
-  }
 
   render(): ReactNode {
     return (
       <>
-        <div style={{marginBottom: 20}}>
+        <div style={{marginBottom: 20, minHeight: 200}}>
           <img src={this.state.imageURL}/>
         </div>
 
         <div style={{marginBottom: 20}}>
-          <h4>
-            <span className={this.badgeClasses}>Counter : {this.formatCount()}</span>
-          </h4>
-
-          <Fab
-            onClick={this.handleIncrement}
-            size="small"
-            color="secondary"
-            style={this.fabStyle}>
-            <AddIcon/>
-          </Fab>
-          <Fab
-            onClick={this.handleDecrement}
-            size="small"
-            style={this.fabStyle}>
-            <RemoveIcon/>
-          </Fab>
+          {this.state.counters.map(counter => <Counter {...counter} key={counter.id}/>)}
         </div>
 
         <div>
