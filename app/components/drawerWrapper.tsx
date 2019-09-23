@@ -12,11 +12,14 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {muiTheme} from '../theme';
 import Link from 'next/link';
-import {Icon} from '@material-ui/core';
+import {Icon, IconButton} from '@material-ui/core';
 import {NextPageContext} from 'next';
 import {ToolbarComponent} from './toolbarComponent';
 
-const drawerWidth = 240;
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
+export const drawerWidth = 240;
 
 const withDrawer = ComposedComponent => {
   const HOC = props => {
@@ -33,12 +36,12 @@ const withDrawer = ComposedComponent => {
           }),
         },
         appBarShift: {
-          // marginLeft: drawerWidth,
-          // width: `calc(100% - ${drawerWidth}px)`,
-          // transition: theme.transitions.create(['width', 'margin'], {
-          //   easing: theme.transitions.easing.sharp,
-          //   duration: theme.transitions.duration.enteringScreen,
-          // }),
+          marginLeft: drawerWidth,
+          width: `calc(100% - ${drawerWidth}px)`,
+          transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen,
+          }),
         },
         menuButton: {
           marginRight: 36,
@@ -84,13 +87,21 @@ const withDrawer = ComposedComponent => {
     );
 
     const classes = useStyles(muiTheme);
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
+
+
+    function handleDrawerToggle() {
+      setOpen(!open);
+    }
 
     return (
       <div className={classes.root}>
         <CssBaseline/>
         <AppBar position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: open})}>
-          <ToolbarComponent/>
+          <ToolbarComponent
+            open={open}
+            onMenuButtonClick={handleDrawerToggle}
+            drawerClasses={classes}/>
         </AppBar>
         <Drawer
           open={open}
@@ -105,7 +116,11 @@ const withDrawer = ComposedComponent => {
               [classes.drawerClose]: !open,
             }),
           }}>
-          <div className={classes.toolbar}/>
+          <Toolbar className={classes.toolbar}>
+            <IconButton onClick={handleDrawerToggle}>
+              {muiTheme.direction === 'rtl' ? <ChevronRightIcon/> : <ChevronLeftIcon/>}
+            </IconButton>
+          </Toolbar>
           <Divider/>
           <List>
             <Link href='/'>

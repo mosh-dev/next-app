@@ -24,7 +24,7 @@ export const Counter = (props) => {
       <Fab
         onClick={() => onIncrement(counter)}
         size="small"
-        color="primary"
+        color="secondary"
         style={fabStyle}>
         <AddIcon/>
       </Fab>
@@ -35,7 +35,7 @@ export const Counter = (props) => {
         <RemoveIcon/>
       </Fab>
       <Fab
-        color="secondary"
+        color="primary"
         onClick={() => onDelete(counter)}
         size="small"
         style={fabStyle}>
