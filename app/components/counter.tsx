@@ -5,13 +5,12 @@ import RemoveIcon from '@material-ui/icons/Remove';
 import {Icon} from '@material-ui/core';
 
 export default class Counter extends Component {
-
-  fabStyle = {margin: '0px 18px 4px 8px'};
+  props: any;
+  fabStyle = {margin: '0px 18px 10px 8px'};
 
   private get badgeClasses() {
-    let classes = 'badge badge-';
-    classes += this.props['counter'].value === 0 ? 'danger' : 'warning';
-    return classes;
+    const {counter} = this.props as any;
+    return `badge badge-${counter.value === 0 ? 'danger' : 'warning'}`;
   }
 
   render(): ReactNode {

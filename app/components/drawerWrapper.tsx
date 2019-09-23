@@ -15,6 +15,7 @@ import {muiTheme} from '../theme';
 import Link from 'next/link';
 import {Icon} from '@material-ui/core';
 import {NextPageContext} from 'next';
+import {ToolbarComponent} from './toolbarComponent';
 
 const drawerWidth = 240;
 
@@ -90,11 +91,7 @@ const withDrawer = ComposedComponent => {
       <div className={classes.root}>
         <CssBaseline/>
         <AppBar position="fixed" className={clsx(classes.appBar, {[classes.appBarShift]: open})}>
-          <Toolbar>
-            <Typography variant="h6" noWrap>
-              Mini variant drawer
-            </Typography>
-          </Toolbar>
+          <ToolbarComponent/>
         </AppBar>
         <Drawer
           variant="permanent"
@@ -121,8 +118,6 @@ const withDrawer = ComposedComponent => {
                 <ListItemText primary={'home'}/>
               </ListItem>
             </Link>
-          </List>
-          <List>
             <Link href='/test'>
               <ListItem button>
                 <ListItemIcon>

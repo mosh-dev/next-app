@@ -2,6 +2,7 @@ import React, {Component, ReactNode} from 'react';
 import withDrawer from '../app/components/drawerWrapper';
 import Counter from '../app/components/counter';
 import {Button} from '@material-ui/core';
+import withMaterialUI from '../app/components/shared/mui/with-mui';
 
 class Test extends Component {
   state = {
@@ -29,7 +30,6 @@ class Test extends Component {
   handleIncrement = (counter) => {
     const counters = [...this.state.counters];
     const index = counters.indexOf(counter);
-    console.log(index, counter);
     counters[index] = {...counter};
     counters[index].value++;
     this.setState({counters});
@@ -73,4 +73,4 @@ class Test extends Component {
   }
 }
 
-export default withDrawer(Test)
+export default withMaterialUI(withDrawer(Test))

@@ -5,7 +5,6 @@ import Link from 'next/link';
 export class PostsComponent extends Component {
   render() {
     let {posts} = this.props as any;
-    console.log(posts);
     return (
       <Grid container>
         {(posts || []).map(post => (
