@@ -6,25 +6,20 @@ import {Icon} from '@material-ui/core';
 
 
 export const Counter = (props) => {
+
+  const {counter, onDelete, onIncrement, onDecrement} = props;
+
   const fabStyle = {margin: '0 18px 10px 0'};
-  const {
-    counter,
-    onDelete,
-    onIncrement,
-    onDecrement
-  } = props;
-
-
-  const badgeClasses = () => `badge badge-${counter.value === 0 ? 'danger' : 'warning'}`;
+  const counterStyle = {fontSize: 18, marginRight: 32, minWidth: 200};
+  const badgeClasses = `badge badge-${counter.value === 0 ? 'danger' : 'warning'}`;
 
 
   return (
     <div style={{marginBottom: 32}}>
       {props.children}
-      <span
-        style={{fontSize: 18, marginRight: 32, minWidth: 200}}
-        className={badgeClasses()}>{counter.value}
-        </span>
+      <span style={counterStyle} className={badgeClasses}>
+        {counter.value}
+      </span>
 
       <Fab
         onClick={() => onIncrement(counter)}

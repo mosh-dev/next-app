@@ -9,7 +9,7 @@ class Test extends Component {
     imageURL: 'https://picsum.photos/800/100',
     counters: [
       {id: 1, value: 0},
-      {id: 2, value: 4},
+      {id: 2, value: 0},
       {id: 3, value: 6}
     ]
   };
